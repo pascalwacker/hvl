@@ -1,0 +1,13 @@
+# This file defines the menus on the website. See the documentation for
+# details: https://docs.bolt.cm/configuration/menus
+
+main:
+    - label: Home
+      path: homepage
+    - label: Blog
+      path: /blogs
+    - label: Galerie
+      path: /galeries
+    - label: Agenda
+      path: /#agenda
+      class: scolly

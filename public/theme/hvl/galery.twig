@@ -1,0 +1,54 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+<section id="main" class="wrapper alt">
+    <div class="inner">
+        
+        <header class="major special">
+            <p>{{ record.subtitle }}</p>
+            <h1>{{ record.title }}</h1>
+        </header>
+    
+        <div class="hvl-galery">
+            {% for image in record.images %}
+                <div><a class="image main"><img src="{{ image|image(1280, 660) }}" alt="{{ image.alt|default() }}" /></a></div>
+            {% endfor %}
+        </div>
+        {{ record.text|raw }}
+        {% if record.info %}
+            <blockquote>
+                {{ record.info|replace({'<p>':'', '</p>':'<br />'})|striptags('<a><b><i><br><strong>')|raw }}
+            </blockquote>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock main %}
+
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
+
+{% endblock css %}
+
+{% block javascript %}
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
+<script>
+    $(document).on('ready', function() {
+    $('.hvl-galery').slick({
+        dots: true,
+        infinite: true,
+        lazyLoad: 'ondemand',
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 7000,
+        prevArrow: '<span class="hvl-galery-arrow hvl-galery-prev"><i class="fa fa-chevron-left"></i></span>',
+        nextArrow: '<span class="hvl-galery-arrow hvl-galery-next"><i class="fa fa-chevron-right"></i></span>'
+    });
+});
+</script>
+
+{% endblock javascript %}

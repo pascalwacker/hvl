@@ -1,0 +1,24 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+<section id="main" class="wrapper alt">
+    <div class="inner">
+        
+        <header class="major special">
+            <p>{{ record.start|date('d.m.Y - H:i') }}</p>
+            <h1>{{ record.title }}</h1>
+            <h3>{{ record.place }}</h3>
+        </header>
+        
+        {% if record.image %}<figure class="image main"><img src="{{ record.image|image(1280, 660) }}" alt="{{ record.values.image.alt|default() }}" /></figure>{% endif %}
+        {{ record.text|raw }}
+        {% if record.info %}
+            <blockquote>
+                {{ record.info|replace({'<p>':'', '</p>':'<br />'})|striptags('<a><b><i><br><strong>')|raw }}
+            </blockquote>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock main %}

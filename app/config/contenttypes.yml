@@ -1,0 +1,224 @@
+# This file defines the contenttypes on the website. See the documentation for
+# details: https://docs.bolt.cm/contenttypes/intro
+
+# The Homepage contenttype is a singleton: There can be only one record of this
+# contenttype.
+
+homepage:
+    name: Homepage
+    singular_name: Homepage
+    fields:
+        topImage:
+            type: image
+        start:
+            type: datetime
+    viewless: true
+    singleton: true
+    default_status: published
+    icon_many: "fa:home"
+    icon_one: "fa:home"
+
+
+# Pages can be used for the more 'static' pages on your site. This content-type
+# has a 'templateselect' field, which allows you to override the record_template
+# setting for an individual page.
+# The taxonomy for this ContentType is defined as 'groups', which is a so-called
+# "grouping taxonomy". This way you can easily group sets of pages that logically
+# belong together. If your site has a 'services' section, in which you'd like to
+# list the different types of services a company provides, you can group these
+# together.
+
+blogs:
+    name: Blog
+    singular_name: Blog
+    slug: blogs
+    singular_slug: blog
+    fields:
+        title:
+            type: text
+            class: large
+        slug:
+            type: slug
+            uses: title
+        image:
+            type: image
+        teaser:
+            type: textarea
+        text:
+            type: html
+        info:
+            type: html
+    taxonomy: [ categories ]
+    record_template: blog.twig
+    listing_template: blogs.twig
+    listing_records: 10
+    default_status: published
+    sort: -datepublish
+    recordsperpage: 20
+    show_on_dashboard: true
+
+galeries:
+    name: Galerien
+    singular_name: Galerie
+    slug: galeries
+    singular_slug: galery
+    fields:
+        title:
+            type: text
+            class: large
+        subtitle:
+            type: text
+            class: large
+        slug:
+            type: slug
+            uses: [ title, subtitle ]
+        images:
+            type: imagelist
+        text:
+            type: html
+        info:
+            type: html
+    record_template: galery.twig
+    listing_template: galeries.twig
+    listing_records: 10
+    default_status: published
+    sort: -datepublish
+    recordsperpage: 20
+    show_on_dashboard: true
+
+events:
+    name: Events
+    singular_name: Event
+    slug: events
+    singular_slug: event
+    fields:
+        title:
+            type: text
+            class: large
+        place:
+            type: text
+            class: large
+        start:
+            type: datetime
+        slug:
+            type: slug
+            uses: [ title, place, start ]
+        image:
+            type: image
+        teaser:
+            type: textarea
+        text:
+            type: html
+        info:
+            type: html
+    record_template: event.twig
+    default_status: published
+    sort: -start
+    show_on_dashboard: true
+    taxonomy: [ events ]
+
+# The 'Blocks' ContentType is a so-called 'resource ContentType'. This means
+# that it can be used to manage smaller pieces of content, like the 'about us'
+# text, an 'our address' in the footer, or similar short blurbs of text.
+# For more info, see: https://docs.bolt.cm/howto/resource-contenttype
+
+blocks:
+    name: Blocks
+    singular_name: Block
+    fields:
+        title:
+            type: text
+            class: large
+            group: "Block"
+        slug:
+            type: slug
+            uses: [ title ]
+        content:
+            type: html
+            height: 150px
+        image:
+            type: image
+            attrib: title
+            extensions: [ gif, jpg, png ]
+    show_on_dashboard: true
+    viewless: true
+    default_status: published
+    searchable: false
+    icon_many: "fa:cubes"
+    icon_one: "fa:cube"
+
+# Possible field types:
+#
+# text - varchar(256) - input type text.
+# integer - integer - Input field for integer numbers.
+# float - double - Input field for floating numbers, stored as 'Double'.
+# geolocation - text (65kb) - Input field for geolocation. Enter an address, and the location is geocoded to latitude/longitude coordinates
+# imagelist - text (65kb) - Input type for imagelists. Add multiple images with a description. Useful for image sliders, galleries, etcetera.
+# image - varchar(256) - image select/upload widget, stored as filename.
+# file - varchar(256) - file select/upload widget, stored as filename.
+# filelist - text (65kb) - Input type for a list of files. Including a description.
+# video - varchar(256) - Video embed widget, stored as filename.
+# html - text (65kb) - wysiwyg element.
+# textarea - varchar(32768) - Simple, plain < textarea > field.
+# markdown - varchar(32768) - Simple, plain < textarea > field, which is parsed as Markdown text.
+# datetime - datetime - date and time selector widget.
+# date - datetime - date selector widget.
+# select - varchar(256) - select with predefined values
+# templateselect - varchar(256) - select with template filenames
+# checkbox - integer - checkbox-field which is 1 (checked) or 0 (unchecked)
+
+# Using YAML repeated nodes
+#
+# YAML allows the defining of "repeated nodes". These allow you to define a 'node'
+# with a 'key: &name' and referenced later with '<<: *name'
+#
+# Bolt allows you to define this with the special entry of '__nodes:' that itself
+# won't create a ContentType, but will allow you to use it in actual ContentTypes
+# to prevent repeating yourself.
+#
+# To achieve this, first create a key '__nodes:'
+#__nodes:
+#    field_defaults: &field_defaults
+#        title:
+#            type: text
+#            class: large
+#            group: main
+#        slug:
+#            type: slug
+#            uses: title
+#    template_defaults: &template_defaults
+#        template:
+#            type: templateselect
+#            filter: '*.twig'
+#            group: meta
+#
+# Then, as an example, you could create a ContentType with default fields, with
+# an additional 'image' field.
+#
+#contenttype_abc:
+#    name: ContentType Abc
+#    fields:
+#        <<: *field_defaults
+#        image:
+#            type: image
+#            attrib: title
+#            extensions: [ gif, jpg, png ]
+#        <<: *template_defaults
+#    taxonomy: [ chapters ]
+#    recordsperpage: 10
+#
+# Alternatively, or additionally, you then can then create a ContentType with
+# default fields, and a 'select' field, and a different 'templateselect' option.
+#
+#contenttype_xyz:
+#    name: ContentType Xyz
+#    fields:
+#        <<: *field_defaults
+#        selectfield:
+#            type: select
+#            values: [ none, foo, bar ]
+#        template:
+#            type: templateselect
+#            filter: '*_xyz.twig'
+#    taxonomy: [ tags ]
+#    recordsperpage: 20

@@ -1,0 +1,21 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+<section id="two" class="wrapper style1 special">
+    <br /><br /><br /><br />
+    <div class="inner">
+        <ul class="features">
+            {% for galery in records %}
+                <li>
+                    <a href="{{ path('contentlink', {'contenttypeslug': 'galery', 'slug': galery.values.slug}) }}" class="icon icon-background major" style="background-image: url('{% if galery.values.images and galery.values.images|length %}{{ galery.values.images|first|thumbnail() }}{% endif %}');"></a>
+                    <h4>{{ galery.values.title }}</h4>
+                    <p>{{ galery.values.subtitle }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        {{ pager(template = 'partials/_sub_pager.twig') }}
+    </div>
+</section>
+
+{% endblock main %}

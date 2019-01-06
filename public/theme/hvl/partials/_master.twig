@@ -1,0 +1,88 @@
+{% set isHome = app.request.get('_route') == "homepage" %}
+<!DOCTYPE HTML>
+<html lang="{{ htmllang() }}">
+<head>
+    <title>
+        {%- if record.title is defined and record.title %}{{ record.title|striptags }} - {% endif -%}
+        {{ config.get('general/sitename') -}}
+        {% if record.title is not defined and config.get('general/payoff') %} - {{ config.get('general/payoff') }}{% endif -%}
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="{{ asset('js/ie/html5shiv.js', 'theme') }}"></script><![endif]-->
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('css/main.css', 'theme') }}" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset('css/ie9.css', 'theme') }}" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('css/ie8.css', 'theme') }}" /><![endif]-->
+</head>
+    <body>
+        <div id="page-wrapper">
+            <header id="header"{{ isHome ? ' class="alt"' }}>
+                <span class="logo"><a href="{{ path('homepage') }}">{% if not isHome %}<i class="fa fa-chevron-left"></i> {% endif %}{{ config.get('general/sitename') -}}</a> <span>{{ config.get('general/payoff') }}</span></span>
+                <a href="#menu">Menu</a>
+            </header>
+    
+            <nav id="menu">
+                <div class="inner">
+                    <h2>Menu</h2>
+                    <ul class="links">
+                        {{ menu(template = 'partials/_sub_menu.twig') }}
+                        <li><a href="#footer" class="navbar-item scolly">Kontakt</a></li>
+                    </ul>
+                    <a class="close">Schliessen</a>
+                </div>
+            </nav>
+    
+            {% block body %}
+        
+                {% block main %}
+                {% endblock main %}
+    
+            {% endblock body %}
+    
+            <!-- Footer -->
+            {% setcontent vorstand = "blocks/vorstand" limit 1 returnsingle %}
+            <footer id="footer" style="background-image:-moz-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if vorstand and vorstand.values.image and vorstand.values.image.file %},url('/files/{{ vorstand.values.image.file }}'){% endif %};background-image:-webkit-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if vorstand and vorstand.values.image and vorstand.values.image.file %},url('/files/{{ vorstand.values.image.file }}'){% endif %};background-image:-ms-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if vorstand and vorstand.values.image and vorstand.values.image.file %},url('/files/{{ vorstand.values.image.file }}'){% endif %};background-image:linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if vorstand and vorstand.values.image and vorstand.values.image.file %},url('/files/{{ vorstand.values.image.file }}'){% endif %};">
+                <div class="inner">
+                    <ul class="contact">
+                        <li class="icon fa-male">
+                            {% if vorstand %}
+                                <strong>{{ vorstand.values.title }}</strong>
+                                {{ vorstand.values.content|raw }}
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <form action="{{ path('contactmail') }}" method="post">
+                        <h4>Kontakt</h4>
+                        <div class="field half first">
+                            <label for="name">Name</label>
+                            <input required name="name" id="name" type="text" placeholder="Name">
+                        </div>
+                        <div class="field half">
+                            <label for="email">Email</label>
+                            <input required name="email" id="email" type="email" placeholder="Email">
+                        </div>
+                        <div class="field">
+                            <label for="message">Nachricht</label>
+                            <textarea required name="message" id="message" rows="6" placeholder="Nachricht"></textarea>
+                        </div>
+                        <ul class="actions">
+                            <li><input value="Senden" class="button big" type="submit"></li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="copyright">
+                    &copy; Hilariverein Langwiesen | made with <i class="fa fa-heart"></i> by <a href="https://pascalwacker.ch" target="_blank">pascalwacker.ch</a>
+                </div>
+            </footer>
+            
+        </div>
+
+        <script src="{{ asset('js/vendor.min.js', 'theme') }}"></script>
+        <!--[if lte IE 8]><script src="{{ asset('js/ie/respond.min.js', 'theme') }}"></script><![endif]-->
+        <script src="{{ asset('js/app.min.js', 'theme') }}"></script>
+        {% block javascript %}{% endblock %}
+    </body>
+</html>
+
+

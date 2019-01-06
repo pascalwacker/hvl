@@ -1,0 +1,25 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+<section id="one" class="wrapper style2">
+    <br /><br /><br /><br />
+    <div class="inner">
+        <section class="spotlights">
+            {% for blog in records %}
+                <article>
+                    <header class="major">
+                        {% if blog.taxonomy and blog.taxonomy|length %}<p>{% for taxonomy in blog.taxonomy %}{{ not loop.first ? ', ' }}{% for link, name in taxonomy %}<a href="{{ link }}">{{ name|ucfirst }}</a>{{ not loop.last ? ', ' }}{% endfor %}{% endfor %}</p>{% endif %}
+                        <h2><a href="{{ path('contentlink', {'contenttypeslug': 'blog', 'slug': blog.values.slug}) }}">{{ blog.values.title }}</a></h2>
+                    </header>
+                    <p>{{ blog.values.teaser|nl2br }}</p>
+                    <ul class="actions">
+                        <li><a href="{{ path('contentlink', {'contenttypeslug': 'blog', 'slug': blog.values.slug}) }}" class="button">Mehr</a></li>
+                    </ul>
+                </article>
+            {% endfor %}
+            {{ pager(template = 'partials/_sub_pager.twig') }}
+        </section>
+    </div>
+</section>
+{% endblock main %}

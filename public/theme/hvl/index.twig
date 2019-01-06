@@ -1,0 +1,126 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+    
+    <!-- Banner -->
+    {% setcontent homepage = "homepage" limit 1 returnsingle %}
+    <section id="banner" style="background-image:-moz-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};background-image:-webkit-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};background-image:-ms-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};background-image:linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};">
+        <div class="inner">
+            <p>Hilari {{ homepage and homepage.values.start ? homepage.values.start|date('Y') }}</p>
+            <h1 class="countdown-next-hilari" data-date="{{ homepage and homepage.values.start ? homepage.values.start|date('Y-m-d H:i:00') }}"></h1>
+            <ul class="actions">
+                <li><a href="#one" class="button big special scrolly">Mehr</a></li>
+            </ul>
+        </div>
+    </section>
+    
+    {#<!-- Three -->
+    <section id="three" class="wrapper">
+        <div class="inner">
+            <header class="major alt">
+                <p>Brauch</p>
+                <h2><a href="saga.html">Die Saga des Hilari</a></h2>
+            </header>
+            <section class="posts">
+                <article>
+                    <span class="image"><a href="saga.html"><img class="background-image" src="images/home_entry_placeholder.png" alt="" style="background-image:url('images/6.png');"></a></span>
+                    <div class="content">
+                        <p>Vor Jahrhunderten lebte auf Schloss Laufen das Edelfräulein Bertha von Laufen. Es wurde von seinen Untertanen verehrt und geliebt, denn es...</p>
+                        <ul class="actions">
+                            <li><a href="saga.html" class="button">Mehr</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </section>#}
+    
+    <!-- One -->
+    <section id="one" class="wrapper style2">
+        <div class="inner">
+            <section class="spotlights">
+                {% setcontent blogs = 'blogs/latest/2' %}
+                {% for blog in blogs %}
+                    <article>
+                        <header class="major">
+                            {% if blog.taxonomy and blog.taxonomy|length %}<p>{% for taxonomy in blog.taxonomy %}{{ not loop.first ? ', ' }}{% for link, name in taxonomy %}<a href="{{ link }}">{{ name|ucfirst }}</a>{{ not loop.last ? ', ' }}{% endfor %}{% endfor %}</p>{% endif %}
+                            <h2><a href="{{ path('contentlink', {'contenttypeslug': 'blog', 'slug': blog.values.slug}) }}">{{ blog.values.title }}</a></h2>
+                        </header>
+                        <p>{{ blog.values.teaser|nl2br }}</p>
+                        <ul class="actions">
+                            <li><a href="{{ path('contentlink', {'contenttypeslug': 'blog', 'slug': blog.values.slug}) }}" class="button">Mehr</a></li>
+                        </ul>
+                    </article>
+                {% endfor %}
+                <div class="spotlights-more">
+                    <ul class="actions">
+                        <li><a href="{{ path('contentlisting', {'contenttypeslug': 'blogs'}) }}" class="button">Alle Blog Einträge</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </section>
+    
+    <!-- Two -->
+    <section id="two" class="wrapper style1 special">
+        <div class="inner">
+            <h2>Galerie</h2>
+            <ul class="features">
+                {% setcontent galeries = 'galeries/latest/4' %}
+                {% for galery in galeries %}
+                    <li>
+                        <a href="{{ path('contentlink', {'contenttypeslug': 'galery', 'slug': galery.values.slug}) }}" class="icon icon-background major" style="background-image: url('{% if galery.values.images and galery.values.images|length %}{{ galery.values.images|first|thumbnail() }}{% endif %}');"></a>
+                        <h4>{{ galery.values.title }}</h4>
+                        <p>{{ galery.values.subtitle }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div>
+                <ul class="actions">
+                    <li><a href="{{ path('contentlisting', {'contenttypeslug': 'galeries'}) }}" class="button">Alle Galerien</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- Four -->
+    <section id="agenda" class="wrapper style2 alt">
+        <div class="inner">
+            <header class="major">
+                <p>Hilari {{ homepage and homepage.values.start ? homepage.values.start|date('Y') }}</p>
+                <h2 class="tabs-trigger-wrapper" data-tabs-target="#agenda-tabs">
+                    Agenda
+                    {% for slug, event in app.config.get('taxonomy/events/options') %}
+                        <span data-tabs-trigger="{{ slug }}" data-tabs-trigger-default>{{ event }}</span>{{ not loop.last ? ' | ' }}
+                    {% endfor %}
+                </h2>
+            </header>
+            <div class="tabs" id="agenda-tabs">
+                {% for slug, name in app.config.get('taxonomy/events/options') %}
+                    <section class="timeline" data-tabs-target="{{ slug }}"{{ loop.first ? ' data-tabs-default' }}>
+                        {% setcontent events = 'events' where { events: slug } %}
+                        {% for event in events %}
+                            <section>
+                                <header>
+                                    <p>{{ event.values.start|date('H:i') }}</p>
+                                    <h4><a href="{{ path('contentlink', {'contenttypeslug': 'event', 'slug': event.values.slug}) }}">{{ event.values.title }}</a></h4>
+                                    <h5>{{ event.values.place }}</h5>
+                                </header>
+                                {% if event.values.image %}<span class="image"><a href="{{ path('contentlink', {'contenttypeslug': 'event', 'slug': event.values.slug}) }}"><img class="background-image background-image-static" src="{{ asset('images/home_agenda_placeholder.png', 'theme') }}" alt="" style="background-image:url('{% if event.values.image and event.values.image %}{{ event.values.image|thumbnail() }}{% endif %}');" /></a></span>{% endif %}
+                                <div class="content">
+                                    <p>{{ event.values.teaser|nl2br }}</p>
+                                    <ul class="actions">
+                                        <li><a href="{{ path('contentlink', {'contenttypeslug': 'event', 'slug': event.values.slug}) }}" class="button">Mehr</a></li>
+                                    </ul>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    </section>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+{% endblock main %}
