@@ -6,6 +6,8 @@
     {% setcontent homepage = "homepage" limit 1 returnsingle %}
     <section id="banner" style="background-image:-moz-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};background-image:-webkit-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};background-image:-ms-linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};background-image:linear-gradient(to top, rgba(71,46,104,0.5), rgba(71,46,104,0.5)){% if homepage and homepage.values.topimage and homepage.values.topimage.file %},url('/files/{{ homepage.values.topimage.file }}'){% endif %};">
         <div class="inner">
+            <figure class="home-logo"><img src="{{ asset('images/logo.png', 'theme') }}" alt="{{ config.get('general/sitename') -}}" /></figure>
+            <br /><br />
             <p>Hilari {{ homepage and homepage.values.start ? homepage.values.start|date('Y') }}</p>
             <h1 class="countdown-next-hilari" data-date="{{ homepage and homepage.values.start ? homepage.values.start|date('Y-m-d H:i:00') }}"></h1>
             <ul class="actions">

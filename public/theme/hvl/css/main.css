@@ -2933,7 +2933,7 @@
 		}
 
 		.features .icon {
-			border-radius: 100%;
+			border-radius: 20%;
 			box-shadow: -0.5em 0.5em 1em rgba(0, 0, 0, 0.05);
 			display: block;
 			font-size: 2.75em;
@@ -2942,6 +2942,9 @@
 			margin: 0 auto 0.7em;
 			text-align: center;
 			width: 3.75em;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
 		}
 
 		.features h4 {

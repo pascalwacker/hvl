@@ -17,5 +17,5 @@ categories:
     singular_slug: category
     behaves_like: categories
     multiple: true
-    options: [ news, bauch, saga ]
+    options: [ News, Brauch, 'Gschichtä vom Brunnä', 'Unsere Kollegen', 'Fragen & Antworten' ]
     listing_template: blogs.twig
