@@ -1,0 +1,148 @@
+{
+    "__bolt_export_meta": {
+        "date": "2019-01-07T01:14:42+01:00",
+        "version": "3.6.3",
+        "platform": "mysql"
+    },
+    "homepage": [
+        {
+            "slug": "slug-4f54792cc7e750536324a4498edc2ec7",
+            "datecreated": "2019-01-06 20:03:20",
+            "datechanged": "2019-01-06 20:03:20",
+            "datepublish": "2019-01-06 20:02:51",
+            "datedepublish": "",
+            "ownerid": 1,
+            "status": "published",
+            "templatefields": [],
+            "topimage": {
+                "file": "2019-01/banner.jpg"
+            },
+            "start": "2019-01-24 03:50:00",
+            "incomingrelation": null,
+            "_id": "homepage/slug-4f54792cc7e750536324a4498edc2ec7"
+        }
+    ],
+    "blogs": [
+        {
+            "slug": "die-saga-des-hilari",
+            "datecreated": "2019-01-06 20:54:02",
+            "datechanged": "2019-01-07 00:55:43",
+            "datepublish": "2019-01-06 20:50:57",
+            "datedepublish": "",
+            "ownerid": 1,
+            "status": "published",
+            "templatefields": [],
+            "title": "Die Saga des Hilari",
+            "image": {
+                "file": "2019-01/1546804277_6.png"
+            },
+            "teaser": "Vor Jahrhunderten lebte auf Schloss Laufen das Edelfräulein Bertha von Laufen. Es wurde von seinen Untertanen verehrt und geliebt, denn es...",
+            "text": "<p>Vor Jahrhunderten lebte auf Schloss Laufen das Edelfräulein Bertha von Laufen. Es wurde von seinen Untertanen verehrt und geliebt, denn es führte ein mildes Regiment.</p>\r\n\r\n<p>Als ein Ritter aus dem Schwabenland sie begehrte und um ihre Hand anhielt, verweigerte sie ihm diese, denn sie wollte ihre Untertanen nicht verlassen. Indes, der Ritter gab nicht nach und belagerte mit seinen Knechten das Schloss.</p>\r\n\r\n<p>In grosser Not liess Bertha heimlich Boten ausschicken und rief die Männer der Dörfer Uhwiesen, Flurlingen, Feuerthalen und Langwiesen um Hilfe. Diese kamen sogleich und gingen wacker zur Sache. Die fremden Eindringlinge wurde verprügelt und des Landes verjagt.</p>\r\n\r\n<p>Zum Dank für die erlösende Tat und zum Andenken an ihren Schutzpatron, den heiligen Hilarius, vermachte das Burgfräulein ihren Bauern auf ewige Zeiten den Cholfirstwald. Darob herrschte in den vier Gemeinden eitel Freude bei gross und klein, und so wird dieser Anlass gefeiert bis auf den heutigen Tag. Die Schenkungsurkunde aber wird verwahrt im Archiv des Uhwieser Kirchleins.</p>\r\n",
+            "info": "<p><b>Quelle:</b> Leutenegger Roland, Hilari im Wandel der Zeit, Ein Album zum 120-Jahr-Jubiläum des Hilarivereins Feuerthalen 1992</p>\r\n",
+            "incomingrelation": null,
+            "categories": [
+                {
+                    "slug": "brauch",
+                    "name": "Brauch"
+                },
+                {
+                    "slug": "gschichtae-vom-brunnae",
+                    "name": "Gschichtä vom Brunnä"
+                }
+            ],
+            "_id": "blogs/die-saga-des-hilari"
+        }
+    ],
+    "galeries": [
+        {
+            "slug": "2018-freitag",
+            "datecreated": "2019-01-06 22:12:12",
+            "datechanged": "2019-01-06 22:12:12",
+            "datepublish": "2019-01-06 22:10:47",
+            "datedepublish": "",
+            "ownerid": 1,
+            "status": "published",
+            "templatefields": [],
+            "title": "2018",
+            "subtitle": "Freitag",
+            "images": [
+                {
+                    "filename": "2019-01/1.png",
+                    "title": "2019-01/1"
+                },
+                {
+                    "filename": "2019-01/2.jpg",
+                    "title": "2019-01/2"
+                },
+                {
+                    "filename": "2019-01/4.jpg",
+                    "title": "2019-01/4"
+                },
+                {
+                    "filename": "2019-01/3.jpg",
+                    "title": "2019-01/3"
+                },
+                {
+                    "filename": "2019-01/5.jpg",
+                    "title": "2019-01/5"
+                },
+                {
+                    "filename": "2019-01/1546809076_6.png",
+                    "title": "2019-01/1546809076_6"
+                }
+            ],
+            "text": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\r\n\r\n<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>\r\n",
+            "info": "<p><b>Quelle:</b> Fotograf 1, <a href=\"https://pascalwacker.ch\" target=\"_blank\">Fotograf 2</a>, Fotograf 3</p>\r\n",
+            "incomingrelation": null,
+            "_id": "galeries/2018-freitag"
+        }
+    ],
+    "events": [
+        {
+            "slug": "test-foobar-2019-01-17-10-00-00",
+            "datecreated": "2019-01-06 23:07:37",
+            "datechanged": "2019-01-06 23:07:37",
+            "datepublish": "2019-01-06 23:06:13",
+            "datedepublish": "",
+            "ownerid": 1,
+            "status": "published",
+            "templatefields": [],
+            "title": "Test",
+            "place": "Foobar",
+            "start": "2019-01-17 10:00:00",
+            "image": {
+                "file": "2019-01/1546812392_6.png"
+            },
+            "teaser": "Phasellus in ante vitae nibh porttitor tempus vitae ut ante. Vestibulum blandit dolor elementum viverra. Sed quat a diam, aliquet tempus felis. Phasellus et magna vitae nibh porttitor tempus vitae.",
+            "text": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\r\n\r\n<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>\r\n",
+            "info": "<p><b>Eintritt:</b></p>\r\n\r\n<p>U16/Legi: 15.-</p>\r\n\r\n<p>Normal: 20.-</p>\r\n",
+            "incomingrelation": null,
+            "events": [
+                {
+                    "slug": "freitag",
+                    "name": "Freitag"
+                }
+            ],
+            "_id": "events/test-foobar-2019-01-17-10-00-00"
+        }
+    ],
+    "blocks": [
+        {
+            "slug": "vorstand",
+            "datecreated": "2019-01-06 18:51:52",
+            "datechanged": "2019-01-06 19:46:06",
+            "datepublish": "2019-01-06 18:49:31",
+            "datedepublish": "",
+            "ownerid": 1,
+            "status": "published",
+            "templatefields": [],
+            "title": "Vorstand",
+            "content": "<p>Sara Zulauf, <i>Präsidentin</i></p>\r\n\r\n<p>Reto Tonina, <i>Kassier</i></p>\r\n\r\n<p>Mathias Dietrich, <i>Festwirt</i></p>\r\n\r\n<p>Manuel Egloff, <i>Aktuar</i></p>\r\n\r\n<p>Fabio Tonina, <i>Bögg</i></p>\r\n\r\n<p>Karin Bührer, <i>Deko</i></p>\r\n\r\n<p>Basil Abderhalden, <i>Beisitzer</i></p>\r\n",
+            "image": {
+                "file": "2019-01/footer.jpg"
+            },
+            "incomingrelation": null,
+            "_id": "blocks/vorstand"
+        }
+    ]
+}
