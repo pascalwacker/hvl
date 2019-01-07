@@ -38,7 +38,7 @@ class CustomisationExtension extends SimpleExtension
                     ->setFrom('info@hilariverein-langwiesen.ch')
                     ->setTo('pascal.wacker@gmx.ch')
                     ->setBody("Von: " . $name . "(" . $email . ")\n\r\n\rNachricht: " . $message)
-                    ->addPart("<strong>Von:</strong> " . $name . "(" . $email . ")<br /><br /><strong>Nachricht:</strong> " . $message, 'text/html');
+                    ->addPart("<strong>Von:</strong> " . $name . "(" . $email . ")<br /><br /><strong>Nachricht:</strong> " . nl2br($message), 'text/html');
                 $result = $app['mailer']->send($message);
             }
         }
