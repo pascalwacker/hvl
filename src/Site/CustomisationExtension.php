@@ -36,10 +36,10 @@ class CustomisationExtension extends SimpleExtension
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Nachricht vom Hilariverein')
                     ->setFrom('info@hilariverein-langwiesen.ch')
-                    ->setTo('pascal.wacker@gmx.ch')
+                    ->setTo($app['config']->get('general/contactMail'))
                     ->setBody("Von: " . $name . "(" . $email . ")\n\r\n\rNachricht: " . $message)
                     ->addPart("<strong>Von:</strong> " . $name . "(" . $email . ")<br /><br /><strong>Nachricht:</strong> " . nl2br($message), 'text/html');
-                $result = $app['mailer']->send($message);
+                $app['mailer']->send($message);
             }
         }
 
